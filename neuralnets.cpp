@@ -8,12 +8,12 @@ double randomWeight()
 
 double sigmoid(double x)
 {
-    return 1 / (1 + exp(-x)); // Fixed parentheses
+    return 1 / (1 + exp(-x)); 
 }
 
 double sigmoidDerivative(double x)
 {
-    return x * (1 - x); // x should already be sigmoid(x)
+    return x * (1 - x); 
 }
 
 class NeuralNetwork
@@ -52,7 +52,7 @@ void train(NeuralNetwork &nn, vector<vector<double>> X, vector<double> Y, int ep
             double x1 = X[j][0], x2 = X[j][1];
             double expected = Y[j];
 
-            // Forward Pass
+            // Forward Pass for intermidiate values req for backprop
             double h1 = sigmoid(x1 * nn.weights1[0] + x2 * nn.weights1[1] + nn.bias1_h1);
             double h2 = sigmoid(x1 * nn.weights1[2] + x2 * nn.weights1[3] + nn.bias1_h2);
             double output = sigmoid(h1 * nn.weights2[0] + h2 * nn.weights2[1] + nn.bias2);
